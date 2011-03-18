@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "manage courses" do
+describe "list courses" do
 
   context "with 3 people" do
     before do
