@@ -12,5 +12,18 @@ bundle
 
 rails g rspec:install
 
+rails g rspec:integration manage_courses
+
+
+$ rails g model course name:string description:text
+      invoke  active_record
+      create    db/migrate/20110318174916_create_courses.rb
+      create    app/models/course.rb
+      invoke    rspec
+      create      spec/models/course_spec.rb
+ 
+===> edit spec to make it so name and description must have some text
+
+
 
 
