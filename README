@@ -1,0 +1,13 @@
+
+rails new class_app_new
+cd class_app_new/
+vi Gemfile 
+
+group :development, :test do
+   gem 'rspec-rails'
+   gem 'capybara'
+end
+
+bundle
+
+
