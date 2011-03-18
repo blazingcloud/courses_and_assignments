@@ -1,3 +1,5 @@
-ClassAppNew::Application.routes.draw do
-  match 'courses' => "courses#index"
+ClassAppNew::Application.routes.draw do# |map|
+  resources :courses do
+    resources :assignments
+  end
 end

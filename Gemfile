@@ -29,4 +29,7 @@ gem 'sqlite3'
 group :development, :test do
    gem 'rspec-rails'
    gem 'capybara'
+   gem 'launchy'
+   gem 'ruby-debug19'
 end
+
