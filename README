@@ -10,4 +10,7 @@ end
 
 bundle
 
+rails g rspec:install
+
+
 
