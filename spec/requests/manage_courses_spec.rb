@@ -14,11 +14,13 @@ describe "manage courses" do
     it "displays list of course names and their descriptions" do
       # page.save_and_open_page
       page.should have_content('Creative Writing')
-      page.should have_content('Learn to write fiction.')
       page.should have_content('Ruby on Rails')
-      page.should have_content('Build awesome web applications.')
       page.should have_content('American History')
-      page.should have_content("Those who don't know history are doomed to repeat it.")
+    end
+
+    it "links to show page" do
+      click_link 'Creative Writing'
+      page.should have_content('Learn to write fiction.')
     end
   end
 
