@@ -1,0 +1,8 @@
+<h1>Courses</h1>
+
+<ul>
+<% @courses.each do |course| %>
+  <li><%= "#{course.name} #{course.description}" %></li>
+<% end %>
+
+</ul>

@@ -22,7 +22,26 @@ $ rails g model course name:string description:text
       invoke    rspec
       create      spec/models/course_spec.rb
  
-===> edit spec to make it so name and description must have some text
+===> edit spec to verify we can create a Course with text and description
+
+rake spec
+
+add to config/routes.rb
+  match 'courses' => "courses#index"
+
+rake spec
+
+rails g controller courses
+
+rake spec: AbstractController::ActionNotFound
+
+touch app/views/courses/index.html.erb
+
+rake spec: page.should have_content
+
+# edit view and add controller index action
+# remove helper since we're not using it yet
+
 
 
 
