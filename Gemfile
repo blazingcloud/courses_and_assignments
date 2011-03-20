@@ -32,5 +32,6 @@ group :development, :test do
    gem 'ruby-debug19', '~>0.11.6'
    gem 'jasmine', '~>1.0.1'
    gem 'database_cleaner', '~>0.6.6'
+   gem 'factory_girl_rails', '~>1.0.1'
 end
 
