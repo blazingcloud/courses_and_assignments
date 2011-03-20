@@ -44,22 +44,45 @@ describe "Mangaging assignments from a course page", :js => true do
       describe "and entering valid data" do
         before do
           @title = "In the mountains, you are beguiled by mysterious music" 
-          fill_in "Description", :with => @title
-          select "2010", :from => 'assignment_assigned_on_1i'
-          select "February", :from => "assignment_assigned_on_2i"
-          select "5", :from => "assignment_assigned_on_3i"
-          click_button "Create Assignment"
+        end
+        
+        describe "without datepicker" do
+          before do
+            fill_in "Description", :with => @title
+            fill_in 'assignment_due_on', :with => "2010-02-05"
+            click_button "Create Assignment"
+          end
+
+          it "should create the assignment" do
+            Assignment.find_by_description(@title).should_not be_nil
+          end
+
+          it "should display the course page with the new assignment" do
+            current_path.should == "/courses/#{course.id}"
+            page.should have_content("2010-02-05: In the mountains, you are beguiled by mysterious music")
+          end
         end
 
-        it "should create the assignment" do
-          Assignment.find_by_description(@title).should_not be_nil
+        describe "using the datepicker to enter dates" do
+          before do
+            fill_in "Description", :with => @title
+            fill_in 'assignment_due_on', :with => "2010-02-05"
+            @month = page.evaluate_script("$('div.ui-datepicker-title span.ui-datepicker-month').text()")
+            page.execute_script("$('table.ui-datepicker-calendar tbody tr td a:contains(\"18\")').click()")
+            @selected_date = page.find('#assignment_due_on').value
+            click_button "Create Assignment"
+          end
+
+          it "should save with the datepicker selected date" do
+            @month.should == "February"
+            @selected_date.should == "2010-02-18"
+            current_path.should == "/courses/#{course.id}"
+            page.should have_content("2010-02-18: In the mountains, you are beguiled by mysterious music")
+          end
         end
 
-        it "should display the course page with the new assignment" do
-          current_path.should == "/courses/#{course.id}"
-          page.should have_content("In the mountains, you are beguiled by mysterious music")
-        end
       end
+
     end
 
     describe "when clicking on an assignment" do
