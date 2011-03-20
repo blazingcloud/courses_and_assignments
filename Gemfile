@@ -5,8 +5,7 @@ gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+gem 'sqlite3', '~>1.3.3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -27,9 +26,11 @@ gem 'sqlite3'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-   gem 'rspec-rails'
-   gem 'capybara'
-   gem 'launchy'
-   gem 'ruby-debug19'
+   gem 'rspec-rails', '~>2.5.0'
+   gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
+   gem 'launchy', '~>0.4.0'
+   gem 'ruby-debug19', '~>0.11.6'
+   gem 'jasmine', '~>1.0.1'
+   gem 'database_cleaner', '~>0.6.6'
 end
 
