@@ -66,6 +66,7 @@ GEM
       selenium-client (>= 1.2.17)
       selenium-rc (>= 2.1.0)
     json_pure (1.5.1)
+    kgio (2.3.3)
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -135,6 +136,9 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.25)
+    unicorn (3.5.0)
+      kgio (~> 2.3)
+      rack
     xpath (0.1.3)
       nokogiri (~> 1.3)
 
@@ -151,3 +155,4 @@ DEPENDENCIES
   rspec-rails (~> 2.5.0)
   ruby-debug19 (~> 0.11.6)
   sqlite3 (~> 1.3.3)
+  unicorn (~> 3.5.0)
