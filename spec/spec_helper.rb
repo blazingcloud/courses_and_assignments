@@ -5,8 +5,36 @@ require 'rspec/rails'
 
 require 'capybara/rspec'
 require 'capybara/rails'
+
 require 'selenium-webdriver'
-Selenium::WebDriver::Firefox::Binary.path = "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin"
+#Selenium::WebDriver::Firefox::Binary.path = "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin"
+require 'sauce'
+require 'sauce/capybara'
+#Sauce.config do |config|
+  #config.username = "veganjenny"
+  #config.access_key = 
+  #config.browser = "firefox"
+  #config.os = "Windows 2003"
+  #config.browser_version = "3.6."
+#end
+sauce_user = ENV["SAUCE_USER"]
+sauce_key = ENV["SAUCE_KEY"]
+
+Sauce::Selenium::WebDriver = ::Selenium::WebDriver
+Sauce.config do |conf|
+  conf.username = sauce_user
+  conf.access_key = sauce_key
+  #conf.browser_url = "http://87640.test/"
+  conf.browsers = [
+      ["Windows 2003", "firefox", "3.6."]
+  ]
+  #conf.application_host = "sharp-stream-175.heroku.com"
+  #conf.application_port = "3001"
+end
+Capybara.default_driver = :sauce
+#require 'sauce'
+#require 'sauce/capybara'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -47,3 +75,12 @@ RSpec.configure do |config|
   #config.use_transactional_fixtures = true
 
 end
+
+#Sauce.config do |conf|
+    #conf.browser_url = "http://87640.test/"
+    #conf.browsers = [
+        #["Windows 2003", "firefox", "3.6."]
+    #]
+    #conf.application_host = "127.0.0.1"
+    #conf.application_port = "3001"
+#end

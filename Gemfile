@@ -8,6 +8,7 @@ gem 'rails', '3.0.5'
 # Use unicorn as the web server
 
 gem 'heroku', '~>1.18.3'
+gem 'taps', '~>0.3.19'
 # Deploy with Capistrano
 # gem 'capistrano'
 

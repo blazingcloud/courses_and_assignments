@@ -7,7 +7,6 @@ describe "list courses", :js => true do
       Course.create(:name => 'Creative Writing', :description => 'Learn to write fiction.')
       Course.create(:name => 'Ruby on Rails', :description => 'Build awesome web applications.')
       Course.create(:name => 'American History', :description => "Those who don't know history are doomed to repeat it.")
-      puts "Before example, there are #{Course.count} courses"
 
       visit courses_path # index
     end
