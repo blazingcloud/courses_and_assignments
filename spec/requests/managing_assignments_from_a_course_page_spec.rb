@@ -46,11 +46,12 @@ describe "Mangaging assignments from a course page", :js => true do
           @title = "In the mountains, you are beguiled by mysterious music" 
         end
         
-        describe "without datepicker" do
+        describe "without datepicker", :focus => true do
           before do
-            fill_in "Description", :with => @title
             fill_in 'assignment_due_on', :with => "2010-02-05"
+            fill_in "Description", :with => @title
             click_button "Create Assignment"
+            page.should have_content('Assignments')
           end
 
           it "should create the assignment" do

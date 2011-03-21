@@ -36,6 +36,7 @@ end
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.filter = { :focus => true }
   # transactional fixtures make Selenium an unhappy camper
   config.use_transactional_fixtures = false
 
