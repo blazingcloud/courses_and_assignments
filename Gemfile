@@ -7,8 +7,6 @@ gem 'rails', '3.0.5'
 
 # Use unicorn as the web server
 
-gem 'heroku', '~>1.18.3'
-gem 'taps', '~>0.3.19'
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -29,11 +27,11 @@ group :development, :test do
   gem 'sqlite3', '~>1.3.3'
   gem 'unicorn', '~>3.5.0'
   gem 'rspec-rails', '~>2.5.0'
-  gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
-  gem 'ruby-debug19', '~>0.11.6'
+  gem 'capybara', :git => 'git@github.com:jenmei/capybara.git'
+  gem 'ruby-debug', '~>0.10.4'
   gem 'jasmine', '~>1.0.1'
   gem 'database_cleaner', '~>0.6.6'
   gem 'factory_girl_rails', '~>1.0.1'
-  gem 'sauce', '~>0.17.7'
+  gem 'sauce', '~>0.18.1'
 end
 

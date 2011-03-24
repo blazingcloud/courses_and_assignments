@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Mangaging assignments from a course page", :js => true do
+describe "Mangaging assignments from a course page", :js => USE_SELENIUM do
   describe "When going to a course page" do
     attr_reader :course
     before do
@@ -46,12 +46,11 @@ describe "Mangaging assignments from a course page", :js => true do
           @title = "In the mountains, you are beguiled by mysterious music" 
         end
         
-        describe "without datepicker", :focus => true do
+        describe "without datepicker", :js => false do
           before do
             fill_in 'assignment_due_on', :with => "2010-02-05"
             fill_in "Description", :with => @title
             click_button "Create Assignment"
-            page.should have_content('Assignments')
           end
 
           it "should create the assignment" do
@@ -64,7 +63,7 @@ describe "Mangaging assignments from a course page", :js => true do
           end
         end
 
-        describe "using the datepicker to enter dates" do
+        describe "using the datepicker to enter dates", :js => true do
           before do
             fill_in "Description", :with => @title
             fill_in 'assignment_due_on', :with => "2010-02-05"
